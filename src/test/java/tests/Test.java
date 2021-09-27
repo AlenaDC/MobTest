@@ -30,9 +30,6 @@ public class Test {
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "io.appium.android.apis");
         desiredCapabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "io.appium.android.apis.ApiDemos");
-        //for new apps - just use "app"
-        //for pre-installed - "appPackage" and "appActivity"
-        //address of appium server
         //localhost means that appium server is running on your computer
         //if, appium server launched on some other computer
         //specify IP/DNS address instead of localhost
@@ -46,7 +43,7 @@ public class Test {
     @org.junit.Test
     public void Test() throws Exception {
 
-        AndroidElement btn2 = driver.findElementByAccessibilityId("Media");
+        AndroidElement btn2 = driver.findElementByXPath("//android.widget.TextView[@content-desc=\"Media\"]");
 
         String expected = "Media";
         String actual = btn2.getText();
